@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context="MainActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vertical_20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vertical_80"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.8" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_horizontal_33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.33" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_horizontal_66"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.66" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        app:contentInsetStart="0dp"
+        app:layout_collapseMode="pin"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/toolbar_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:background="?attr/actionBarItemBackground"
+                android:paddingStart="12dp"
+                android:paddingEnd="3dp"
+                app:srcCompat="@drawable/printer" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="6dp"
+                android:layout_toStartOf="@+id/btn_info"
+                android:layout_toEndOf="@+id/toolbar_icon"
+                android:ellipsize="end"
+                android:fontFamily="@font/pacifico"
+                android:maxLines="2"
+                android:text="Look, Mom!"
+                android:textColor="@color/colorWhite"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/btn_info"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:background="?attr/actionBarItemBackground"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                app:srcCompat="@drawable/ic_white_info" />
+
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <Spinner
+        android:id="@+id/spinner_printer_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:dropDownVerticalOffset="35dp"
+        android:gravity="end"
+        app:backgroundTint="@color/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <Spinner
+        android:id="@+id/spinner_roll_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:dropDownVerticalOffset="35dp"
+        android:gravity="end"
+        app:backgroundTint="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/spinner_printer_type"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toEndOf="@+id/spinner_printer_type"
+        app:layout_constraintTop_toTopOf="@+id/spinner_printer_type" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_custom_msg"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:hint="My Message"
+        android:visibility="gone"
+        app:counterEnabled="true"
+        app:counterMaxLength="300"
+        app:layout_constraintBottom_toTopOf="@id/holder_layout"
+        app:layout_constraintEnd_toEndOf="@id/guideline_vertical_80"
+        app:layout_constraintStart_toStartOf="@id/guideline_vertical_20"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_printer_type"
+        app:layout_constraintVertical_bias="1">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_custom_msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text|textNoSuggestions"
+            android:maxLines="5"
+            android:textColor="@color/colorBlack" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/background_label_outline"
+        app:layout_constraintBottom_toBottomOf="@id/holder_layout"
+        app:layout_constraintEnd_toEndOf="@id/holder_layout"
+        app:layout_constraintStart_toStartOf="@id/holder_layout"
+        app:layout_constraintTop_toTopOf="@+id/holder_layout" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/holder_layout"
+        android:layout_width="1050px"
+        android:layout_height="300px"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/guideline_horizontal_66"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_horizontal_33">
+
+        <TextView
+            android:id="@+id/tv_message"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:maxLines="5"
+            android:text="Happy Mother's Day!"
+            android:textColor="@color/textColorHighEmphasis"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/holder_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/holder_image"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="W, 1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/viewholder_portrait" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <CheckBox
+        android:id="@+id/checkbox_custom_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/checkbox_image"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Custom Message"
+        android:textColor="@color/textColorHighEmphasis"
+        app:layout_constraintBottom_toBottomOf="@id/checkbox_custom_message"
+        app:layout_constraintStart_toEndOf="@+id/checkbox_custom_message"
+        app:layout_constraintTop_toTopOf="@+id/checkbox_custom_message" />
+
+    <CheckBox
+        android:id="@+id/checkbox_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_print"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add happy image"
+        android:textColor="@color/textColorHighEmphasis"
+        app:layout_constraintBottom_toBottomOf="@id/checkbox_image"
+        app:layout_constraintStart_toEndOf="@+id/checkbox_image"
+        app:layout_constraintTop_toTopOf="@+id/checkbox_image" />
+
+
+    <Button
+        android:id="@+id/btn_print"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@color/colorAccent"
+        android:text="Print"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
